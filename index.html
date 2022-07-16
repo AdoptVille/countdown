@@ -63,7 +63,7 @@ background-image:url("https://media.discordapp.net/attachments/97136913737072233
       margin-bottom:30px;
       margin-top:5px;
     }
-    button{
+    .topb{
       background:#ed556c;
       border:none;
       border-radius:10px;
@@ -147,8 +147,39 @@ background-image:url("https://media.discordapp.net/attachments/97136913737072233
     a{
       text-decoration:none;
     }
-
-      
+#demo{
+   font-family: 'Inter', sans-serif;
+      font-weight:thin;
+     color:#242424;
+     font-size:40px;
+     text-align:center;
+     margin:0px;
+}
+.aftercountdown{
+   display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      margin:20px;
+}
+  .playnow{
+     background:#ed556c;
+      border:none;
+      border-radius:10px;
+       padding:13px;
+      color:white;
+     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+       letter-spacing:1.4px;
+      font-family:roboto;
+      font-size:17px;
+       cursor:pointer;
+  }    
+      #numbers{
+          display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:row;
+      }
       
       
     </style>
@@ -165,10 +196,10 @@ background-image:url("https://media.discordapp.net/attachments/97136913737072233
       <buttons>
         
 <a href="https://devforum.roblox.com/t/adoptville-about-and-update-log/1834811"target="_blank">
-  <button>About</button></a>
+  <button  class="topb">About</button></a>
        
 <a href="https://docs.google.com/document/d/1ul74nYT_c8pD6juqekuwdy61Ifabpv_83A9wnHIojCs/edit"target="_blank">
-  <button>Developers</button></a>
+  <button class="topb">Developers</button></a>
   
       </buttons>
       
@@ -176,19 +207,26 @@ background-image:url("https://media.discordapp.net/attachments/97136913737072233
       
       <div class="countdown">
 
-<div class="numbercontainer"><div id="days"class="number"></div><div class="numberlabel">Days</div></div>
+<div id="numbers">
+<div class="numbercontainer"id="numbercontainer"><div id="days"class="number"></div><div class="numberlabel">Days</div></div>
         
-<div class="numbercontainer"> <div id="hours"class="number"></div><div class="numberlabel">Hrs</div></div>
+<div class="numbercontainer"id="numbercontainer"> <div id="hours"class="number"></div><div class="numberlabel">Hrs</div></div>
        
-<div class="numbercontainer"><div id="minutes"class="number"></div><div class="numberlabel">Mins</div></div>
+<div class="numbercontainer"id="numbercontainer"><div id="minutes"class="number"></div><div class="numberlabel">Mins</div></div>
              
- <div class="numbercontainer"><div id="seconds"class="number"></div><div class="numberlabel">Secs</div></div>
-               
+ <div class="numbercontainer"id="numbercontainer"><div id="seconds"class="number"></div><div class="numberlabel">Secs</div></div>
+ </div>
+ 
+ <div class="aftercountdown"id="aftercountdown">
+ <p id="demo"></p>
+      <a href="https://google.com"><button class="playnow"id="playnowb">Play Now</button></a>         
+      </div>
+      
       </div>
       
       <script>
         // Set the date we're counting down to
-var countDownDate = new Date("July 15, 2022 12:00:00").getTime();
+var countDownDate = new Date("July 22, 2022 12:00:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -213,8 +251,12 @@ var x = setInterval(function() {
     
   // If the count down is over, write some text
   if (distance < 0) {
+    document.getElementById("playnowb").style.display = "inline";
     clearInterval(x);
+    document.getElementById("numbers").style.display = "none";
     document.getElementById("demo").innerHTML = "The Game Has Been Released! Jump in and explore!";
+  } else if (distance > 0) {
+     document.getElementById("aftercountdown").style.display = "none";
   }
 }, 1000);
       </script>
